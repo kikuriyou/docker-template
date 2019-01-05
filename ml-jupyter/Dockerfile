@@ -8,8 +8,6 @@
 ARG BASE_CONTAINER=jupyter/minimal-notebook
 FROM $BASE_CONTAINER
 
-#LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
-
 USER root
 
 # ffmpeg for matplotlib anim
@@ -31,22 +29,11 @@ RUN conda install --quiet --yes \
     'scipy=1.1*' \
     'seaborn=0.9*' \
     'scikit-learn=0.20*' \
-    #'scikit-image=0.14*' \
-    #'sympy=1.1*' \
     'cython=0.28*' \
-    #'patsy=0.5*' \
     'statsmodels=0.9*' \
-    #'cloudpickle=0.5*' \
-    #'dill=0.2*' \
     'numba=0.38*' \
     'bokeh=0.13*' \
-    #'sqlalchemy=1.2*' \
-    #'hdf5=1.10*' \
     'h5py=2.7*' \
-    #'vincent=0.4.*' \
-    #'beautifulsoup4=4.6.*' \
-    #'protobuf=3.*' \
-    #'xlrd' \
     'gensim' \
     'pyldavis' \
     'lightgbm' \
