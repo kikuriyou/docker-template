@@ -54,6 +54,7 @@ RUN conda install --quiet --yes \
     'python-graphviz' \
     'tensorflow=1.12*' \
     'keras=2.2*' \
+    'pystan' \
     && \
     conda remove --quiet --yes --force qt pyqt && \
     conda clean -tipsy && \
