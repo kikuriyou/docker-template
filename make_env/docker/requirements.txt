@@ -19,7 +19,7 @@ numpy==1.17.0
 pandas==0.25.1
 gensim==3.8.0
 optuna==0.14.0
-tensorflow==1.14.0
+tensorflow==1.15.2
 tensorflow-gpu==1.14.0
 Keras==2.3.0
 lightgbm==2.3.0
