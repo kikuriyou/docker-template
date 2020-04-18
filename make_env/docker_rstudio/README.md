@@ -12,6 +12,8 @@
     - Matching 
     - doParallel 
     - caret
+    - miceadds
+    - CausalImpact
 
 ## 構築手順
 ワークディレクトリに入る

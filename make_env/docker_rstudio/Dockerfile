@@ -12,6 +12,8 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
 
 # add r-packages
 RUN install2.r --ncpus -1 --skipinstalled --deps TRUE broom haven cobalt WeightIt MatchIt Matching doParallel caret
+RUN install2.r --ncpus -1 --skipinstalled --deps TRUE miceadds CausalImpact
+#RUN install2.r --ncpus -1 --skipinstalled --deps TRUE Ecdat 
 
 # Set working directory
 WORKDIR /home/rstudio/project
