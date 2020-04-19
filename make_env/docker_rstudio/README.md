@@ -14,6 +14,8 @@
     - caret
     - miceadds
     - CausalImpact
+    - rddtools
+    - rdd
 
 ## 構築手順
 ワークディレクトリに入る
