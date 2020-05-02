@@ -7,7 +7,7 @@ FROM rocker/tidyverse
 # add basic dependencies
 RUN apt-get update -qq && apt-get -y --no-install-recommends install \
     sudo git wget cmake htop pciutils nano vim curl snapd gcc g++ \
-    ca-certificates software-properties-common \
+    ca-certificates software-properties-common libjpeg62-turbo-dev \
     && apt-get install -y --reinstall build-essential \
     && rm -rf /var/lib/apt/lists/*
 
@@ -16,7 +16,8 @@ RUN install2.r --ncpus -1 --skipinstalled --deps TRUE broom haven cobalt WeightI
 RUN install2.r --ncpus -1 --skipinstalled --deps TRUE miceadds CausalImpact
 RUN Rscript -e "devtools::install_github('bquast/rddtools', dependencies = TRUE)"
 RUN install2.r --ncpus -1 --skipinstalled --deps TRUE rdd
-#RUN install2.r --ncpus -1 --skipinstalled --deps TRUE Ecdat 
+RUN install2.r --ncpus -1 --skipinstalled --deps TRUE twang
+RUN install2.r --ncpus -1 --skipinstalled --deps TRUE Ecdat 
 
 # Set working directory
 WORKDIR /home/rstudio/project
