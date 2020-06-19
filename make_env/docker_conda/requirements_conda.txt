@@ -7,6 +7,14 @@ lightgbm
 google-cloud-bigquery
 google-cloud-storage
 google-cloud-bigquery-storage
+googlemaps
 pyarrow
 pystan
 lifelines
+folium
+geopy
+geopandas
+shapely
+osmnx
+swifter
+geocoder
