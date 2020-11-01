@@ -14,6 +14,9 @@ ENV PATH=$CONDA_DIR/bin:$PATH
 # Install jupyter-extension for plotly (-> swifter may not works)
 RUN jupyter labextension install jupyterlab-plotly
 
+RUN mkdir -p /root/.jupyter/lab/user-settings/@jupyterlab/apputils-extension
+COPY ./themes.jupyterlab-settings /root/.jupyter/lab/user-settings/@jupyterlab/apputils-extension
+
 # Install python packages
 COPY ./requirements_conda.txt /tmp
 RUN conda install -n rapids -f -y -q -c conda-forge --file /tmp/requirements_conda.txt && \
