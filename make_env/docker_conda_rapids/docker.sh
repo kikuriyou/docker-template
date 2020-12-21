@@ -29,9 +29,8 @@ echo ""
 echo "Check variables."
 echo "Command line arguments: $1 $2"
 
-IMAGE="py37rapidsjp"
-CONTAINER="py37rapidsjp"
-#MEMORY_LIMIT="15g"
+IMAGE="py37rapids"
+CONTAINER="py37rapids"
 echo "IMAGE:     $IMAGE"
 echo "CONTAINER: $CONTAINER"
 echo "MEMORY LIMIT: $MEMORY_LIMIT"
@@ -55,20 +54,21 @@ elif [ "$1" = "start" -o "$1" = "run" ]; then
     echo "Check gpu."
     GPU_CHECK=`lspci | grep -i nvidia`
     if [ "$GPU_CHECK" != "" ]; then
-        echo "There is gpu(s)."
-        ARG="gpu"
-        RUNTIME="nvidia"
+        echo "There is gpu(s), start container with gpu(s)."
+        docker run -it -p $PORT:$PORT -d \
+            -v `pwd`/project:/root/user/project \
+            --gpus all \
+            --rm \
+            --name $CONTAINER \
+            $IMAGE
     else
-        echo "There is not any gpu."
-        ARG="cpu"
-        RUNTIME=""
+        echo "There is not any gpu, start container without gpu."
+        docker run -it -p $PORT:$PORT -d \
+            -v `pwd`/project:/root/user/project \
+            --rm \
+            --name $CONTAINER \
+            $IMAGE
     fi
-    echo "Start container for $ARG."
-    docker run --gpus all -it -p $PORT:$PORT -d \
-        -v `pwd`/project:/root/user/project \
-        --rm \
-        --name $CONTAINER \
-	$IMAGE
 
 elif [ "$1" = "enter" -o "$1" = "exec" ]; then
     echo ""
