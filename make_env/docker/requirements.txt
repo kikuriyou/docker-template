@@ -1,5 +1,5 @@
 pip==18.1
-setuptools==39.1.0
+setuptools==65.5.1
 wheel==0.30.0
 h5py==2.9.0
 joblib==0.13.2
